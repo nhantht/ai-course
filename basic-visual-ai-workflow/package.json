@@ -1,0 +1,24 @@
+{
+  "name": "basic-visual-ai-workflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local n8n teaching project that visually summarizes uploaded text and Markdown files with AI.",
+  "engines": {
+    "node": ">=22.22 <25"
+  },
+  "scripts": {
+    "start": "node scripts/start-n8n.mjs",
+    "seed": "node scripts/seed-workflow.mjs",
+    "reseed": "node scripts/seed-workflow.mjs --force",
+    "n8n": "node scripts/n8n-cli.mjs",
+    "test": "node scripts/validate-project.mjs",
+    "test:ollama": "node scripts/test-ollama.mjs",
+    "video-ad": "node scripts/video-ad-prompt.mjs",
+    "mcp:ollama": "node scripts/ollama-mcp-server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.26.0",
+    "n8n": "2.32.5",
+    "zod": "3.25.67"
+  }
+}

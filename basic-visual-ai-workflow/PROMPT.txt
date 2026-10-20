@@ -1,0 +1,31 @@
+Build a local n8n teaching project that demonstrates a fixed AI-powered workflow, not an
+agent. Pin compatible Node and n8n versions and distribute the workflow as
+credential-free JSON.
+
+The visual graph must contain exactly four understandable stages:
+- A browser form accepts one TXT or Markdown upload.
+- An Extract From File node reads the uploaded binary data as UTF-8 text. The required
+  form field prevents omission, but this basic example intentionally adds no separate
+  server-side empty-file or content validation.
+- One model call summarizes the text.
+- A completion page renders the summary as sanitized plain text.
+
+The application controls every transition. The model must not select tools, branches,
+retries, or later actions. Delimit uploaded content as untrusted data, tell the model to
+ignore instructions inside it, avoid unsupported facts, and return a concise summary
+only. Disable provider-side storage where the integration allows it. Keep the bundled
+workflow unpublished and never embed credentials.
+
+Provide local startup scripts that isolate n8n state, bind to loopback, import the
+workflow only on first use, preserve learner edits, and expose an explicit destructive
+reseed command. Credentials must be configured inside n8n's encrypted store.
+
+Highlight pitfalls: file extension checks are not strong server-side content validation;
+browser-facing forms become risky when publicly exposed; execution history may retain
+uploaded text; HTML interpolation can create XSS; and adding an Agent node would
+undermine the workflow-versus-agent lesson.
+
+Add static validation for required files, four-node topology, unique stable IDs,
+connections, upload property names, model operation, sanitized result mapping, runtime
+pins, and secret hygiene. Include concise install, credential, sample-run, reset, test,
+retention, and production-hardening instructions.
